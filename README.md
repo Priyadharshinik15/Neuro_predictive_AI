@@ -1,10 +1,11 @@
-# 🧠 NeuroPredict AI – Rare Neurological Disease Predictor
+#  NeuroPredict AI – Rare Neurological Disease Predictor
 
 > An AI-powered web application for early detection of rare neurological diseases using Machine Learning, Flask, Chart.js, and the Gemini API.
 
 ---
 
-## 📌 Overview
+## 
+Overview
 
 Rare neurological diseases like **Wilson's Disease**, **Niemann–Pick Type C**, **Batten Disease**, and **Creutzfeldt–Jakob Disease (CJD)** are frequently misdiagnosed due to symptom overlap with common disorders. In many regions, patients go undiagnosed for years.
 
@@ -159,19 +160,6 @@ The model was trained on a curated dataset with SMOTE applied to handle class im
 - Spinocerebellar Ataxia (SCA)
 - Leigh's Syndrome
 
----
-
-## 📸 Screenshots
-
-> *(Add screenshots of your app here)*
-
-| Page | Preview |
-|---|---|
-| Home | ![Home](screenshots/home.png) |
-| Prediction Form | ![Form](screenshots/form.png) |
-| Result Page | ![Result](screenshots/result.png) |
-| Dashboard | ![Dashboard](screenshots/dashboard.png) |
-| AI Chatbot | ![Chatbot](screenshots/chatbot.png) |
 
 ---
 
@@ -198,8 +186,3 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ---
 
-## 🙋‍♂️ Author
-
-Made with ❤️ for advancing accessible healthcare through AI.
-
-> *"Bridging the diagnostic gap, one prediction at a time."*
