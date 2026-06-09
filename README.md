@@ -2,7 +2,7 @@
 
 > An AI-powered web application for early detection of rare neurological diseases using Machine Learning, Flask, Chart.js, and the Gemini API.
 
----
+--- 
 
 ## 
 Overview
