@@ -83,104 +83,71 @@ NeuroPredict-AI/
 ```
 ## 🏗️ Architecture
 
-NeuroPredict AI is a full-stack AI-assisted neurological disease prediction system. It combines patient symptom data, a Machine Learning prediction engine, patient history, interactive analytics, and a Gemini-powered AI assistant into a unified diagnostic-support workflow.
+NeuroPredict AI follows a simple pipeline where patient information is processed by the Flask backend, analyzed by the ML model, stored in MySQL, and presented through the web dashboard. The Gemini API provides additional AI-based medical information and guidance.
 
 ```mermaid
-flowchart TB
+flowchart LR
 
-    A["👤 PATIENT / USER<br/><b>Patient Profile + Symptoms</b><br/>Age • Gender • Medical Symptoms • Clinical Parameters"]
+    A["👤 Patient / User<br/><br/>Symptoms + Patient Details"]
 
-    subgraph UI["🌐 WEB APPLICATION"]
-        B["Patient Input Form<br/><br/>Symptoms • Medical Parameters<br/>Disease-related Indicators"]
-        C["Dashboard<br/><br/>Prediction Results • Disease Trends<br/>Charts • Patient History"]
-        D["Authentication<br/><br/>Register • Login<br/>Hashed Passwords • Secure Sessions"]
-    end
+    B["🌐 Web Interface<br/><br/>HTML • CSS • JavaScript<br/>Forms • Dashboard"]
 
-    subgraph BACKEND["⚙️ FLASK BACKEND"]
-        E["Flask Application<br/><br/>Routes • API Endpoints<br/>Business Logic • Request Handling"]
-        F["Data Preprocessing<br/><br/>Validation • Encoding<br/>Feature Preparation"]
-    end
+    C["⚙️ Flask Backend<br/><br/>API • Authentication<br/>Data Processing"]
 
-    subgraph ML["🧠 MACHINE LEARNING ENGINE"]
-        G["Logistic Regression Model<br/><br/>Scikit-learn • Pandas • NumPy<br/>Trained on Neurological Disease Data"]
-        H["Prediction Engine<br/><br/>Disease Prediction<br/>Confidence / Probability"]
-        G --> H
-    end
+    D["🧠 ML Prediction Engine<br/><br/>Logistic Regression<br/>Disease Prediction"]
 
-    subgraph AI["🤖 AI MEDICAL ASSISTANT"]
-        I["Gemini API<br/><br/>Natural Language Understanding"]
-        J["AI Guidance<br/><br/>Disease Information<br/>Symptom Explanation<br/>Treatment & Prevention Guidance"]
-        I --> J
-    end
+    E["📋 Prediction Result<br/><br/>Disease + Confidence Score"]
 
-    subgraph DB["🗄️ MYSQL DATABASE"]
-        K["User Data<br/><br/>Accounts • Authentication"]
-        L["Patient Records<br/><br/>Symptoms • Predictions"]
-        M["Prediction History<br/><br/>Previous Results • Trends"]
-    end
+    F["🗄️ MySQL Database<br/><br/>User Data<br/>Patient Records<br/>Prediction History"]
 
-    N["📋 PREDICTION RESULT<br/><br/>Predicted Disease + Confidence Score<br/>Personalized Result Summary"]
+    G["🤖 Gemini AI Assistant<br/><br/>Disease Information<br/>Symptom Explanation<br/>Prevention Guidance"]
 
-    subgraph ANALYTICS["📊 ANALYTICS & INSIGHTS"]
-        O["Disease Distribution<br/><br/>Chart.js Pie / Bar Charts"]
-        P["Disease Trends<br/><br/>Historical Line Charts"]
-        Q["Patient History<br/><br/>Previous Predictions"]
-    end
+    H["📊 Dashboard & Insights<br/><br/>Charts • Trends<br/>Patient History"]
 
     A --> B
-    A --> D
-
-    B --> E
+    B --> C
+    C --> D
     D --> E
+    E --> B
 
-    E --> F
-    F --> G
+    C <--> F
+    C --> G
+    G --> B
 
-    H --> N
-    N --> C
-
-    E <--> K
-    E <--> L
-    E <--> M
-
-    M --> Q
-    L --> O
-    M --> P
-
-    E --> I
-    I --> J
-    J --> C
-
-    C --> N
-
-    N -. "Store Prediction" .-> M
-    M -. "Historical Evidence" .-> C
+    E --> H
+    F --> H
 ```
 
-### 🔄 Core Prediction Loop
+### 🔄 Core Workflow
 
-**Patient Input → Data Preprocessing → ML Prediction → Disease + Confidence → Store History → Dashboard & Analytics**
+**Patient Input → Web Interface → Flask Backend → ML Prediction → Result → Dashboard**
 
-### 🤖 AI Assistance Loop
+### 🤖 AI Assistance
 
-**User Question → Flask Backend → Gemini API → Medical Explanation → User**
+**User Question → Flask Backend → Gemini API → AI Guidance → User**
 
-### 🧠 Complete System Flow
+### 🗄️ Data Flow
 
-**Patient → Web Interface → Flask Backend → ML Model → Prediction Result → MySQL History → Dashboard → AI Assistance → Continuous Patient Monitoring**
+**Patient Data → MySQL → Prediction History → Dashboard & Trend Analysis**
 
 ```
 
-### ⭐ One important improvement
+### Why this version is better for GitHub
 
-Your original README says **“early detection”** and **“medical diagnosis.”** For a student/research prototype, I'd present it as **“AI-assisted prediction”** or **“decision support”** rather than implying it can diagnose patients. That makes the project description more technically and professionally defensible.
+It avoids putting every small component into the architecture. The main flow is immediately visible:
 
-For example:
+**👤 User → 🌐 Frontend → ⚙️ Flask → 🧠 ML → 📋 Result**
 
-> **NeuroPredict AI is an AI-assisted decision-support prototype that predicts possible rare neurological disease categories from provided patient features and provides educational information through a Gemini-powered assistant.**
+and the two supporting systems are clearly separated:
 
-This architecture will also look much better in your GitHub README than a simple list of technologies.
+- 🗄️ **MySQL** → stores users, patient records, and history
+- 🤖 **Gemini** → provides AI explanations and guidance
+- 📊 **Dashboard** → displays predictions and trends
+
+This is the version I'd use in your **NeuroPredict AI GitHub README**.
 ```
+
+
 
 ---
 
