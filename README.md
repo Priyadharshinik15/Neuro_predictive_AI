@@ -81,6 +81,106 @@ NeuroPredict-AI/
 │   └── rare_neuro_diseases_dataset.csv
 └── README.md
 ```
+## 🏗️ Architecture
+
+NeuroPredict AI is a full-stack AI-assisted neurological disease prediction system. It combines patient symptom data, a Machine Learning prediction engine, patient history, interactive analytics, and a Gemini-powered AI assistant into a unified diagnostic-support workflow.
+
+```mermaid
+flowchart TB
+
+    A["👤 PATIENT / USER<br/><b>Patient Profile + Symptoms</b><br/>Age • Gender • Medical Symptoms • Clinical Parameters"]
+
+    subgraph UI["🌐 WEB APPLICATION"]
+        B["Patient Input Form<br/><br/>Symptoms • Medical Parameters<br/>Disease-related Indicators"]
+        C["Dashboard<br/><br/>Prediction Results • Disease Trends<br/>Charts • Patient History"]
+        D["Authentication<br/><br/>Register • Login<br/>Hashed Passwords • Secure Sessions"]
+    end
+
+    subgraph BACKEND["⚙️ FLASK BACKEND"]
+        E["Flask Application<br/><br/>Routes • API Endpoints<br/>Business Logic • Request Handling"]
+        F["Data Preprocessing<br/><br/>Validation • Encoding<br/>Feature Preparation"]
+    end
+
+    subgraph ML["🧠 MACHINE LEARNING ENGINE"]
+        G["Logistic Regression Model<br/><br/>Scikit-learn • Pandas • NumPy<br/>Trained on Neurological Disease Data"]
+        H["Prediction Engine<br/><br/>Disease Prediction<br/>Confidence / Probability"]
+        G --> H
+    end
+
+    subgraph AI["🤖 AI MEDICAL ASSISTANT"]
+        I["Gemini API<br/><br/>Natural Language Understanding"]
+        J["AI Guidance<br/><br/>Disease Information<br/>Symptom Explanation<br/>Treatment & Prevention Guidance"]
+        I --> J
+    end
+
+    subgraph DB["🗄️ MYSQL DATABASE"]
+        K["User Data<br/><br/>Accounts • Authentication"]
+        L["Patient Records<br/><br/>Symptoms • Predictions"]
+        M["Prediction History<br/><br/>Previous Results • Trends"]
+    end
+
+    N["📋 PREDICTION RESULT<br/><br/>Predicted Disease + Confidence Score<br/>Personalized Result Summary"]
+
+    subgraph ANALYTICS["📊 ANALYTICS & INSIGHTS"]
+        O["Disease Distribution<br/><br/>Chart.js Pie / Bar Charts"]
+        P["Disease Trends<br/><br/>Historical Line Charts"]
+        Q["Patient History<br/><br/>Previous Predictions"]
+    end
+
+    A --> B
+    A --> D
+
+    B --> E
+    D --> E
+
+    E --> F
+    F --> G
+
+    H --> N
+    N --> C
+
+    E <--> K
+    E <--> L
+    E <--> M
+
+    M --> Q
+    L --> O
+    M --> P
+
+    E --> I
+    I --> J
+    J --> C
+
+    C --> N
+
+    N -. "Store Prediction" .-> M
+    M -. "Historical Evidence" .-> C
+```
+
+### 🔄 Core Prediction Loop
+
+**Patient Input → Data Preprocessing → ML Prediction → Disease + Confidence → Store History → Dashboard & Analytics**
+
+### 🤖 AI Assistance Loop
+
+**User Question → Flask Backend → Gemini API → Medical Explanation → User**
+
+### 🧠 Complete System Flow
+
+**Patient → Web Interface → Flask Backend → ML Model → Prediction Result → MySQL History → Dashboard → AI Assistance → Continuous Patient Monitoring**
+
+```
+
+### ⭐ One important improvement
+
+Your original README says **“early detection”** and **“medical diagnosis.”** For a student/research prototype, I'd present it as **“AI-assisted prediction”** or **“decision support”** rather than implying it can diagnose patients. That makes the project description more technically and professionally defensible.
+
+For example:
+
+> **NeuroPredict AI is an AI-assisted decision-support prototype that predicts possible rare neurological disease categories from provided patient features and provides educational information through a Gemini-powered assistant.**
+
+This architecture will also look much better in your GitHub README than a simple list of technologies.
+```
 
 ---
 
